@@ -23,7 +23,6 @@ const Login: React.FC = () => {
         } finally {
             setLoading(false);
         }
-        navigate('/home', { replace: true });
     };
 
     const handleLogin = () => {

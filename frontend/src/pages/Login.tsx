@@ -43,8 +43,9 @@ const Login: React.FC = () => {
                     alt="Drink illustration"
                     className={logoReady ? 'logo' : 'logo-before'}
                 />
-                <div className="login-card">
-                    <h1 className="login-title">Đăng nhập vào</h1>
+                <h1 className="login-title">Đăng nhập vào</h1>
+                <div className={logoReady ? 'login-card' : 'login-card-before'}>
+                    <br/>
                     <form onSubmit={handleEmailLogin} className="login-form">
                         <input type="email" name="email" placeholder="Email" className="login-input" required />
                         <input type="password" name="password" placeholder="Mật khẩu" className="login-input" required />

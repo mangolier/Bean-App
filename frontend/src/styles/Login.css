@@ -13,7 +13,8 @@
     position: relative;
 }
 
-.login-card {
+.login-card,
+.login-card-before {
     background: #FFFBF3;
     padding: 3rem 2rem;
     border-radius: 4rem;
@@ -21,17 +22,30 @@
     width: 100%;
     max-width: 22rem;
     text-align: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease 0.8s, background 0.8s ease 0.8s;
+}
+
+.login-card {
+    transform: rotateX(0deg);
+}
+
+.login-card-before {
+    transform: rotateX(180deg);
+    background: transparent;
 }
 
 .logo,
 .logo-before {
     position: absolute;
     width: 50%;
-    transition: top 0.6s ease 0.8s, left 0.6s ease 0.8s, transform 0.6s ease 0.8s;
+    transition: top 0.8s ease 0.8s, left 0.8s ease 0.8s, transform 0.8s ease 0.8s;
+    z-index: 1;
 }
 
 .logo {
-    top: -15%;
+    top: -22%;
     left: 50%;
     transform: translate(0, 0);
 }
@@ -43,11 +57,15 @@
 }
 
 .login-title {
+    top: 6%;
+    left: 8%;
     font-family: 'Dancing Script', serif;
     font-size: 2rem;
     color: #3D2E00;
     text-align: left;
     line-height: 1.2;
+    position: absolute;
+    z-index: 1;
 }
 
 .login-form {

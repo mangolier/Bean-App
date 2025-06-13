@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/auth';
 import { useAuth } from '../context/AuthContext';
@@ -7,6 +7,7 @@ import '../styles/Login.css';
 const Login: React.FC = () => {
     const navigate = useNavigate();
     const [, setLoading] = useState(false);
+    const [logoReady, setLogoReady] = useState(false);
     const { setToken } = useAuth();
 
     const handleEmailLogin = async (e: React.FormEvent) => {
@@ -25,6 +26,11 @@ const Login: React.FC = () => {
         }
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => setLogoReady(true), 100);
+        return () => clearTimeout(timer);
+    }, []);
+
     const handleGoogleLogin = () => {
         window.location.href = 'http://localhost:8080/oauth2/authorize/google';
     };
@@ -35,7 +41,7 @@ const Login: React.FC = () => {
                 <img
                     src="./assets/logo.jpg"
                     alt="Drink illustration"
-                    className="logo"
+                    className={logoReady ? 'logo' : 'logo-before'}
                 />
                 <div className="login-card">
                     <h1 className="login-title">Đăng nhập vào</h1>

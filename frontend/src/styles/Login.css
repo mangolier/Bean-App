@@ -23,18 +23,21 @@
     text-align: center;
 }
 
-.logo {
+.logo,
+.logo-before {
     position: absolute;
+    width: 50%;
+}
+
+.logo {
     top: -6rem;
     right: -4rem;
-    width: 15rem;
+    transition: all 0.6s ease 0.5s;
 }
 
 .logo-before {
-    position: absolute;
     top: 25%;
     left: 25%;
-    width: 50%;
 }
 
 .login-title {

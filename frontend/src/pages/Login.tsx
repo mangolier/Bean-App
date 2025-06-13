@@ -7,7 +7,7 @@ import '../styles/Login.css';
 const Login: React.FC = () => {
     const navigate = useNavigate();
     const [, setLoading] = useState(false);
-    const [logoReady, setLogoReady] = useState(false);
+    const [ready, setReady] = useState(false);
     const { setToken } = useAuth();
 
     const handleEmailLogin = async (e: React.FormEvent) => {
@@ -27,7 +27,7 @@ const Login: React.FC = () => {
     };
 
     useEffect(() => {
-        const timer = setTimeout(() => setLogoReady(true), 100);
+        const timer = setTimeout(() => setReady(true), 100);
         return () => clearTimeout(timer);
     }, []);
 
@@ -41,10 +41,10 @@ const Login: React.FC = () => {
                 <img
                     src="./assets/logo.jpg"
                     alt="Drink illustration"
-                    className={logoReady ? 'logo' : 'logo-before'}
+                    className={ready ? 'logo' : 'logo-before'}
                 />
-                <h1 className="login-title">Đăng nhập vào</h1>
-                <div className={logoReady ? 'login-card' : 'login-card-before'}>
+                <h1 className={ready ? 'login-title' : 'login-title-before'}>Đăng nhập vào</h1>
+                <div className={ready ? 'login-card' : 'login-card-before'}>
                     <br/>
                     <form onSubmit={handleEmailLogin} className="login-form">
                         <input type="email" name="email" placeholder="Email" className="login-input" required />

@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=onion;encrypt=true;trustServerCertificate=true
+    username: guanyu98
+    password: hoangphuc88
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.SQLServerDialect
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 360895514662-8at9rv58f5eg4nhbd4bnrngm4fvibckp.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "{baseUrl}/oauth2/callback/google"
+            scope:
+              - email
+              - profile
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+
+server:
+  port: 8080

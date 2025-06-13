@@ -34,7 +34,7 @@ const Login: React.FC = () => {
             <div className="login-card">
                 <img
                     src="./assets/logo.jpg"
-                    alt="Drink illustratio"
+                    alt="Drink illustration"
                     className="drink-image"
                 />
                 <h1 className="login-title">Đăng nhập vào</h1>

@@ -30,27 +30,29 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className="login-card">
+        <div className="page">
+            <div className="login-form-container">
                 <img
                     src="./assets/logo.jpg"
                     alt="Drink illustration"
-                    className="drink-image"
+                    className="logo"
                 />
-                <h1 className="login-title">Đăng nhập vào</h1>
-                <form onSubmit={handleEmailLogin} className="login-form">
-                    <input type="email" name="email" placeholder="Email" className="login-input" required />
-                    <input type="password" name="password" placeholder="Mật khẩu" className="login-input" required />
-                    <button type="submit" className="login-button">Đăng nhập</button>
-                </form>
-                <div className="divider">Hoặc</div>
-                <button className="google-btn" onClick={handleGoogleLogin}>
-                    <img
-                        src="https://developers.google.com/identity/images/g-logo.png"
-                        alt="Google logo"
-                    />
-                    Đăng nhập với Google
-                </button>
+                <div className="login-card">
+                    <h1 className="login-title">Đăng nhập vào</h1>
+                    <form onSubmit={handleEmailLogin} className="login-form">
+                        <input type="email" name="email" placeholder="Email" className="login-input" required />
+                        <input type="password" name="password" placeholder="Mật khẩu" className="login-input" required />
+                        <button type="submit" className="login-button">Đăng nhập</button>
+                    </form>
+                    <div className="divider">Hoặc</div>
+                    <button className="google-btn" onClick={handleGoogleLogin}>
+                        <img
+                            src="https://developers.google.com/identity/images/g-logo.png"
+                            alt="Google logo"
+                        />
+                        Đăng nhập với Google
+                    </button>
+                </div>
             </div>
         </div>
     );

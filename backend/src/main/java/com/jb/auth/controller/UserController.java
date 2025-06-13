@@ -1,7 +1,6 @@
 package com.jb.auth.controller;
 
 import com.jb.auth.model.User;
-import com.jb.auth.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

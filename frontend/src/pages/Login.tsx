@@ -25,34 +25,32 @@ const Login: React.FC = () => {
         }
     };
 
-    const handleLogin = () => {
+    const handleGoogleLogin = () => {
         window.location.href = 'http://localhost:8080/oauth2/authorize/google';
     };
 
     return (
         <div className="login-container">
             <div className="login-card">
-                <h1 className="login-title">CÁ VIÊN CHIÊN</h1>
+                <img
+                    src="./assets/logo.jpg"
+                    alt="Drink illustratio"
+                    className="drink-image"
+                />
+                <h1 className="login-title">Đăng nhập vào</h1>
                 <form onSubmit={handleEmailLogin} className="login-form">
                     <input type="email" name="email" placeholder="Email" className="login-input" required />
                     <input type="password" name="password" placeholder="Mật khẩu" className="login-input" required />
                     <button type="submit" className="login-button">Đăng nhập</button>
                 </form>
-                <div className="divider">hoặc</div>
-                <button className="google-btn" onClick={handleLogin}>
+                <div className="divider">Hoặc</div>
+                <button className="google-btn" onClick={handleGoogleLogin}>
                     <img
                         src="https://developers.google.com/identity/images/g-logo.png"
                         alt="Google logo"
-                        className="google-logo"
                     />
-                    Sign in with Google
+                    Đăng nhập với Google
                 </button>
-                <p className="signup-text">
-                    Chưa có tài khoản?{' '}
-                    <span onClick={() => navigate('/signup')} className="signup-link">
-            Đăng ký
-          </span>
-                </p>
             </div>
         </div>
     );

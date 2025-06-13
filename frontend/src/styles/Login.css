@@ -27,21 +27,22 @@
 .logo-before {
     position: absolute;
     width: 50%;
+    transition: top 0.6s ease 0.8s, left 0.6s ease 0.8s, transform 0.6s ease 0.8s;
 }
 
 .logo {
-    top: -6rem;
-    right: -4rem;
-    transition: all 0.6s ease 0.5s;
+    top: -15%;
+    left: 50%;
+    transform: translate(0, 0);
 }
 
 .logo-before {
-    top: 25%;
-    left: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .login-title {
-    margin-left: 2rem;
     font-family: 'Dancing Script', serif;
     font-size: 2rem;
     color: #3D2E00;

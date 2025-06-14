@@ -99,7 +99,8 @@
     outline: none;
 }
 
-.login-input:focus {
+.login-input:focus,
+.login-input:hover {
     border-color: black;
 }
 

@@ -104,23 +104,6 @@
     border-color: black;
 }
 
-.login-button {
-    padding: 0.75rem 1rem;
-    border: none;
-    border-radius: 0.75rem;
-    background: #524A1E;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-    color: #FFF;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: inherit;
-    transition: box-shadow 0.2s;
-}
-
-.login-button:hover {
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 1);
-}
-
 .divider {
     display: flex;
     align-items: center;
@@ -138,25 +121,36 @@
     margin: 0 0.75rem;
 }
 
+.login-button,
 .google-btn {
     padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFF;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-    color: #000;
     border: none;
     border-radius: 0.75rem;
-    width: 100%;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
     font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
     font-family: inherit;
     transition: box-shadow 0.2s;
 }
 
+.login-button {
+    background: #524A1E;
+    color: #FFF;
+}
+
+.login-button:hover,
 .google-btn:hover {
     box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 1);
+}
+
+.google-btn {
+    background: #FFF;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .google-btn img {

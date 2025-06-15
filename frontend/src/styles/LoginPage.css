@@ -27,7 +27,7 @@
     backface-visibility: hidden;
     opacity: 0.6;
     transform-style: preserve-3d;
-    transition: transform 01s ease 1s, background 1s ease 1s;
+    transition: transform 1.3s ease, background 1.3s;
 }
 
 .login-card {
@@ -53,15 +53,13 @@
 .login-title {
     top: 6%;
     left: 8%;
-    transform: translateX(0);
     opacity: 1;
-    transition: transform 0.8s ease 0.2s, opacity 0.8s ease 0.2s, top 0.8s ease 1s;
+    transition: transform 1s ease, opacity 1s, top 1s ease;
  }
 
 .login-title-before {
     top: 54%;
     left: 8%;
-    transform: translateX(100%);
     opacity: 0;
 }
 

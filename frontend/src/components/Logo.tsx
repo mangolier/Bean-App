@@ -1,41 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
 const Logo: React.FC = () => {
     const { pathname } = useLocation();
+    const controls = useAnimation();
 
-    const variants: Record<string, { width: string | number; top: string | number; left: string | number; x: string | number; y: string | number }> = {
-        '/login': {
-            width: '13rem',
-            top: '50%',
-            left: '50%',
-            x: '0rem',
-            y: '-19.75rem',
-        },
-        '/': {
+    useEffect(() => {
+        if (pathname === '/login') {
+            controls.start({
+                width: '13rem',
+                top: '10rem',
+                left: '50%',
+                transition: {duration: 1, ease: 'easeInOut'},
+            }).then(() => {
+                controls.stop()
+            });
+        } else {
+            controls
+                .start({
+                    width: '2.6rem',
+                    top: 0,
+                    left: '5rem',
+                    transition: {duration: 1, ease: 'easeInOut'},
+                })
+                .then(() => {
+                    controls.stop()
+                });
+        }
+    }, [pathname, controls]);
+
+    const initialProps = pathname === '/login'
+        ? {
             width: '2.6rem',
             top: 0,
-            left: 0,
-            x: 0,
-            y: 0,
+            left: '5rem',
         }
-    };
+        : {
+            width: '13rem',
+            top: '10rem',
+            left: '50%',
+        };
+
 
     return (
         <motion.img
             src="/assets/logo.jpg"
             alt="Logo"
             layoutId="site-logo"
-            initial={{
-                width: '13rem',
-                top: '50%',
-                left: '50%',
-                x: '0rem',
-                y: '-19.75rem',
-            }}
-            animate={variants[pathname] || variants['/']}
-            transition={{ type: 'spring', stiffness: 200, damping: 40 }}
+            initial={initialProps}
+            animate={controls}
             style={{
                 position: 'absolute',
                 zIndex: 1000,

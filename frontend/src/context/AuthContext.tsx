@@ -31,6 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     useEffect(() => {
         if (token && !user) {
+            setLoading(true);
             getUserInfo()
                 .then(data => {
                     setUser(data);

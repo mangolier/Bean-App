@@ -8,9 +8,9 @@ interface Props {
 }
 
 const RequireRole: React.FC<Props> = ({ role, redirectTo }) => {
-    const { user, loading } = useAuth();
+    const { user, loading, token } = useAuth();
 
-    if (loading) return null;
+    if (loading || (token && !user)) return null;
     if (!user) return <Navigate to="/login" replace />;
     if (user.role !== role) return <Navigate to={redirectTo} replace />;
     return <Outlet />;

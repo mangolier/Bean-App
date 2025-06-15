@@ -9,13 +9,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.logo-after {
-    position: absolute;
-    width: 3rem;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    transition: top 0.8s ease, left 0.8s ease;
-    z-index: 1000;
-}

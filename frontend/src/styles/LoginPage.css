@@ -39,24 +39,6 @@
     background: transparent;
 }
 
-.logo,
-.logo-before {
-    position: absolute;
-    width: 50%;
-    transition: top 0.8s ease 1s, left 0.8s ease 0.2s;
-    z-index: 1;
-}
-
-.logo {
-    top: -22%;
-    left: 50%;
-}
-
-.logo-before {
-    top: 25%;
-    left: 25%;
-}
-
 .login-title,
 .login-title-before {
     font-size: 2rem;

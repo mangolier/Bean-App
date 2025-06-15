@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import RequireRole from './components/RequireRole';
 
@@ -16,27 +17,31 @@ import RootRedirect from './pages/RootRedirect';
 
 
 const App: React.FC = () => {
-    return (
-        <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/oauth2/redirect" element={<CallbackHandler />} />
-            <Route path="/error" element={<ErrorPage />} />
+    const location = useLocation();
 
-            <Route element={<AppLayout />}>
-                <Route path="/" element={<RootRedirect />} />
-                <Route element={<RequireRole role="ADMIN" redirectTo="/home" />}>
-                    <Route element={<PortalLayout />}>
-                        <Route index element={<Navigate to="/inventory" replace />} />
-                        <Route path="inventory" element={<InventoryPage />} />
-                        <Route path="orders" element={<OrderPage />} />
+    return (
+        <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/oauth2/redirect" element={<CallbackHandler />} />
+                <Route path="/error" element={<ErrorPage />} />
+
+                <Route element={<AppLayout />}>
+                    <Route path="/" element={<RootRedirect />} />
+                    <Route element={<RequireRole role="ADMIN" redirectTo="/home" />}>
+                        <Route element={<PortalLayout />}>
+                            <Route index element={<Navigate to="/inventory" replace />} />
+                            <Route path="inventory" element={<InventoryPage />} />
+                            <Route path="orders" element={<OrderPage />} />
+                        </Route>
                     </Route>
+                    <Route element={<RequireRole role="USER" redirectTo="/inventory" />}>
+                        <Route path="home" element={<HomePage />} />
+                    </Route>
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Route>
-                <Route element={<RequireRole role="USER" redirectTo="/inventory" />}>
-                    <Route path="home" element={<HomePage />} />
-                </Route>
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Route>
-        </Routes>
+            </Routes>
+        </AnimatePresence>
     );
 };
 

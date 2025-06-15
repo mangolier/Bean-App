@@ -38,11 +38,6 @@ const LoginPage: React.FC = () => {
     return (
         <div className="page">
             <div className="login-form-container">
-                <img
-                    src='/assets/logo.jpg'
-                    alt='Logo'
-                    className={ready ? 'logo' : 'logo-before'}
-                />
                 <h1 className={ready ? 'login-title' : 'login-title-before'}>Đăng nhập vào</h1>
                 <div className={ready ? 'login-card' : 'login-card-before'}>
                     <br/>

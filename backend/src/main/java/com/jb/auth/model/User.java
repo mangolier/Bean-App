@@ -26,6 +26,10 @@ public class User {
     @Column(name = "Password")
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Role", nullable = false)
+    private Role role = Role.USER;
+
     @Column(name = "CreatedAt", nullable = false)
     private Date createdAt;
 

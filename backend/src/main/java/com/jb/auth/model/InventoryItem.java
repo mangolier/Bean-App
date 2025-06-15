@@ -7,24 +7,24 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "Users")
-public class User {
+public class InventoryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
 
-    @Column(name = "ProviderId", nullable = false)
-    private String providerId;
+    @ManyToOne
+    @JoinColumn(name = "InventoryRecordId")
+    private InventoryRecord inventoryRecord;
 
-    @Column(name = "Provider", nullable = false)
-    private String provider;
+    @Column(name = "Name", nullable = false)
+    private String name;
 
-    @Column(name = "Email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "Quantity", nullable = false)
+    private int quantity;
 
-    @Column(name = "Password")
-    private String password;
+    @Column(name = "Price", nullable = false)
+    private double price;
 
     @Column(name = "CreatedAt", nullable = false)
     private Date createdAt;

@@ -7,28 +7,28 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "Users")
-public class User {
+@Table(name = "OrderItems")
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
 
-    @Column(name = "ProviderId", nullable = false)
-    private String providerId;
+    @ManyToOne
+    @JoinColumn(name = "OrderRecordId")
+    private OrderRecord orderRecord;
 
-    @Column(name = "Provider", nullable = false)
-    private String provider;
+    @ManyToOne
+    @JoinColumn(name = "MenuItemId")
+    private MenuItem menuItem;
 
-    @Column(name = "Email", nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "Password")
-    private String password;
+    @Column(name = "Quantity")
+    private int quantity;
 
     @Column(name = "CreatedAt", nullable = false)
     private Date createdAt;
 
     @Column(name = "CreatedBy", nullable = false)
     private String createdBy;
+
 }

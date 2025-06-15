@@ -7,24 +7,23 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "Users")
-public class User {
+public class MenuItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
 
-    @Column(name = "ProviderId", nullable = false)
-    private String providerId;
+    @Column(name = "Name")
+    private String name;
 
-    @Column(name = "Provider", nullable = false)
-    private String provider;
+    @Column(name = "Price")
+    private double price;
 
-    @Column(name = "Email", nullable = false, unique = true)
-    private String email;
+    @Column(name = "FromDate")
+    private Date fromDate;
 
-    @Column(name = "Password")
-    private String password;
+    @Column(name = "ToDate")
+    private Date toDate;
 
     @Column(name = "CreatedAt", nullable = false)
     private Date createdAt;

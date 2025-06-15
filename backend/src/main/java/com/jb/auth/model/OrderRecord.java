@@ -3,28 +3,21 @@ package com.jb.auth.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
-@Entity
-@Table(name = "Users")
-public class User {
+@Entity()
+@Table(name = "OrderRecords")
+public class OrderRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
 
-    @Column(name = "ProviderId", nullable = false)
-    private String providerId;
-
-    @Column(name = "Provider", nullable = false)
-    private String provider;
-
-    @Column(name = "Email", nullable = false, unique = true)
-    private String email;
-
-    @Column(name = "Password")
-    private String password;
+    @OneToMany(mappedBy = "orderRecord", fetch = FetchType.LAZY)
+    private List<OrderItem> items = new ArrayList<>();
 
     @Column(name = "CreatedAt", nullable = false)
     private Date createdAt;

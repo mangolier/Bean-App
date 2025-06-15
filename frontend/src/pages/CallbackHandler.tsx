@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 const CallbackHandler: React.FC = () => {
     const navigate = useNavigate();
-    const { setToken, setUser } = useAuth();
+    const { setToken } = useAuth();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);

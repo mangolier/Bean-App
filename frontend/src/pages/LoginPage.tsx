@@ -20,7 +20,7 @@ const LoginPage: React.FC = () => {
             const data = await login({ email, password });
             localStorage.setItem('jwt', data.access_token);
             setToken(data.access_token);
-            navigate('/home', { replace: true });
+            navigate('/', { replace: true });
         } finally {
             setLoading(false);
         }

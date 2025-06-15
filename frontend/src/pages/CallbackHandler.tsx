@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 const CallbackHandler: React.FC = () => {
     const navigate = useNavigate();
-    const { setToken } = useAuth();
+    const { setToken, setUser } = useAuth();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -13,7 +13,7 @@ const CallbackHandler: React.FC = () => {
         if (token) {
             localStorage.setItem('jwt', token);
             setToken(token);
-            navigate('/home');
+            navigate('/');
         } else {
             navigate('/login');
         }

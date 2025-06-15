@@ -14,7 +14,10 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User | null>(() => {
+        const saved = localStorage.getItem('user');
+        return saved ? JSON.parse(saved) : null;
+    });
     const [token, setToken] = useState<string | null>(() => localStorage.getItem('jwt'));
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
@@ -27,7 +30,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [navigate]);
 
     useEffect(() => {
-        if (token) {
+        if (token && !user) {
             getUserInfo()
                 .then(data => {
                     setUser(data);
@@ -40,7 +43,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         } else {
             setLoading(false);
         }
-    }, [logout, token]);
+    }, [logout, token, user]);
 
     return (
         <AuthContext.Provider value={{ user, token, loading, setUser, setToken, logout }}>

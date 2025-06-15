@@ -22,6 +22,12 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<InventoryRecord> getInventoryRecords(Date from, Date to) {
+        if (from == null) {
+            from = new Date(0);
+        }
+        if (to == null) {
+            to = new Date();
+        }
         return inventoryRecordRepository.findByCreatedAtBetween(from, to);
     }
 
@@ -42,6 +48,12 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<OrderRecord> getOrderRecords(Date from, Date to) {
+        if (from == null) {
+            from = new Date(0);
+        }
+        if (to == null) {
+            to = new Date();
+        }
         return orderRecordRepository.findByCreatedAtBetween(from, to);
     }
 

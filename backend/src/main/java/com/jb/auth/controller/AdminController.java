@@ -20,7 +20,9 @@ public class AdminController {
     private final AdminService adminService;
 
     @GetMapping("/inventory")
-    public ResponseEntity<List<InventoryRecord>> getInventoryRecords(Date from, Date to) {
+    public ResponseEntity<List<InventoryRecord>> getInventoryRecords(
+            @RequestParam(value = "from", required = false) Date from,
+            @RequestParam(value = "to", required = false) Date to) {
         return ResponseEntity.ok(adminService.getInventoryRecords(from, to));
     }
 
@@ -42,7 +44,9 @@ public class AdminController {
     }
 
     @GetMapping("/orders")
-    public ResponseEntity<List<OrderRecord>> getOrderRecords(Date from, Date to) {
+    public ResponseEntity<List<OrderRecord>> getOrderRecords(
+            @RequestParam(value = "from", required = false) Date from,
+            @RequestParam(value = "to", required = false) Date to) {
         return ResponseEntity.ok(adminService.getOrderRecords(from, to));
     }
 

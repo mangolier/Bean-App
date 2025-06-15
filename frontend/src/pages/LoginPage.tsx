@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../services/auth';
 import { useAuth } from '../context/AuthContext';
-import '../styles/Login.css';
+import '../styles/LoginPage.css';
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const [, setLoading] = useState(false);
     const [ready, setReady] = useState(false);
@@ -65,4 +65,4 @@ const Login: React.FC = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

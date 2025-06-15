@@ -15,7 +15,7 @@ const AppLayout: React.FC = () => {
     return (
         <div className="app-layout">
             <TabBar />
-            <div className="page-content">
+            <div className="content-area">
                 <Outlet />
             </div>
         </div>

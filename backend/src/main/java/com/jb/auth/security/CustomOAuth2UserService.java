@@ -13,6 +13,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -37,6 +38,8 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             newUser.setProvider(provider);
             newUser.setProviderId(providerId);
             newUser.setEmail(email);
+            newUser.setCreatedAt(new Date());
+            newUser.setCreatedBy(email);
             userRepository.save(newUser);
         }
 

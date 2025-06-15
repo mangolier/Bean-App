@@ -9,9 +9,7 @@ const TabBar: React.FC = () => {
     return (
         <div className="tab-bar top">
             <div className="tab-left">
-                <button onClick={() => navigate('/home')} className="logo-btn">
-                    🏠 MyApp
-                </button>
+                <img src="/assets/logo.jpg" alt="Logo" onClick={() => navigate('/home')} className="logo-after" />
             </div>
             <div className="tab-right">
                 <span className="user-info">{user?.name || 'User'} ({user?.email || '---'})</span>

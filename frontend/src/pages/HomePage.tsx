@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
-import '../styles/Home.css';
+import '../styles/HomePage.css';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
     const { user } = useAuth();
     return (
         <div>
@@ -19,4 +19,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default HomePage;

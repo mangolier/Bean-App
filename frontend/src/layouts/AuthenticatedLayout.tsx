@@ -9,13 +9,19 @@ const AuthenticatedLayout: React.FC = () => {
     const { token, loading } = useAuth();
     const { setPhase } = useApp();
 
+    React.useEffect(() => {
+        if (!loading) {
+            if (!token) {
+                setPhase('initial');
+            } else {
+                setPhase('exiting');
+            }
+        }
+    }, [loading, token, setPhase]);
+
     if (loading) return <div>Loading...</div>;
     if (!token) {
-        setPhase('initial')
         return <Navigate to="/login" replace />;
-    }
-    else {
-        setPhase('entered');
     }
 
     return (

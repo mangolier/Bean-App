@@ -4,21 +4,42 @@ type AnimationPhase = 'initial' | 'waiting' | 'entered' | 'exiting' | 'exited';
 
 interface AppContextType {
     phase: AnimationPhase;
-    setPhase: React.Dispatch<React.SetStateAction<AnimationPhase>>;
+    setPhase: (phase: AnimationPhase) => void;
     reset: () => void;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [phase, setPhase] = useState<AnimationPhase>('initial');
+    const [phase, _setPhase] = useState<AnimationPhase>('initial');
 
     useEffect(() => {
         console.log(`Animation phase changed: ${phase}`);
     }, [phase]);
 
+    const allowedTransitions: Record<AnimationPhase, AnimationPhase[]> = {
+        initial: ['waiting'],
+        waiting: ['entered', 'exiting'],
+        entered: ['exiting'],
+        exiting: ['initial', 'exited'],
+        exited: []
+    };
+
+    const setPhase = useCallback((next: AnimationPhase) => {
+        if (next === 'initial' && phase !== 'exiting') {
+            console.warn(`Cannot set to 'initial' from '${phase}'. Use reset().`);
+            return;
+        }
+        const valid = allowedTransitions[phase] || [];
+        if (valid.includes(next)) {
+            _setPhase(next);
+        } else {
+            console.warn(`Invalid transition from '${phase}' to '${next}'. Allowed: ${valid.join(', ')}`);
+        }
+    }, [phase]);
+
     const reset = useCallback(() => {
-        setPhase('initial');
+        _setPhase('initial');
     }, []);
 
     return (

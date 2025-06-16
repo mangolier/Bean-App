@@ -13,6 +13,7 @@ const CallbackHandler: React.FC = () => {
         if (token) {
             localStorage.setItem('jwt', token);
             setToken(token);
+            navigate('/');
         } else {
             navigate('/login');
         }

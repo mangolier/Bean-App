@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion, Variants  } from 'framer-motion';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useApp } from '../context/AppContext'
 import LoginForm from '../components/LoginForm';
 import '../styles/AppLayout.css';
@@ -27,17 +27,7 @@ const titleVariants: Variants = {
 }
 
 const AppLayout: React.FC = () => {
-    const { pathname } = useLocation();
-    const { phase, setPhase, reset } = useApp()
-
-    useEffect(() => {
-        if (pathname === '/login') {
-            reset()
-            setPhase('waiting')
-        } else {
-            setPhase('exiting')
-        }
-    }, [pathname, setPhase, reset])
+    const { phase } = useApp()
 
     return (
         <div className="app-layout">

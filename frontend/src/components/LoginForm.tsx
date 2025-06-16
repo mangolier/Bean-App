@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../services/auth'
@@ -9,7 +9,7 @@ import '../styles/LoginForm.css'
 const LoginForm: React.FC = () => {
     const navigate = useNavigate()
     const {setToken} = useAuth()
-    const { phase } = useApp()
+    const { phase, setPhase } = useApp()
 
     const handleEmailLogin = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -29,6 +29,10 @@ const LoginForm: React.FC = () => {
     const handleGoogleLogin = () => {
         window.location.href = 'http://localhost:8080/oauth2/authorize/google'
     };
+
+    useEffect(() => {
+        setPhase('waiting')
+    })
 
     return (
         <motion.div

@@ -1,22 +1,5 @@
-.page {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #FFF5D6 url("../../public/assets/pattern.png") center/cover repeat;
-}
-
-.login-form-container {
-    font-family: 'Dancing Script', serif;
-    width: 100%;
-    max-width: 26rem;
-    position: relative;
-}
-
-.login-card,
-.login-card-before {
-    background: #CFBB65;
+.login-card {
+    background: transparent;
     padding: 3rem 2rem;
     border-radius: 4rem;
     color: #CFBB65;
@@ -27,36 +10,7 @@
     backface-visibility: hidden;
     opacity: 0.6;
     transform-style: preserve-3d;
-    transition: transform 1.1s ease 1s, background 1.1s ease 1s;
-}
-
-.login-card {
-    transform: rotateX(0deg);
-}
-
-.login-card-before {
     transform: rotateX(180deg);
-    background: transparent;
-}
-
-.login-header {
-    display: flex;
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    padding: 0 1.5rem;
-}
-
-.login-title {
-    font-size: 2rem;
-    color: #3D2E00;
-    text-align: left;
-    font-family: inherit;
-    line-height: 1.2;
-}
-
-.login-logo {
-    width: 12rem;
 }
 
 .login-form {

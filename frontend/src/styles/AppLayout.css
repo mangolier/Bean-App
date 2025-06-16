@@ -1,11 +1,43 @@
 .app-layout {
-    display: flex;
     height: 100vh;
-    flex-direction: column;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF5D6 url("../../public/assets/pattern.png") center/cover repeat;
 }
 
-.content-area {
-    flex: 1;
+.app-container {
+    width: 100%;
+    max-width: 26rem;
+    position: relative;
+    font-family: 'Dancing Script', serif;
+}
+
+.logo-container {
     display: flex;
-    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    max-width: 26rem;
+    text-align: center;
+    padding: 0 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-title {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 2rem;
+    color: #3D2E00;
+    text-align: left;
+    font-family: inherit;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.logo {
+    width: 12rem;
+    transform: translateX(-50%);
 }

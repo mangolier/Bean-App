@@ -57,6 +57,7 @@ const LoginPage: React.FC = () => {
                         src="/assets/logo.jpg"
                         alt="Logo"
                         className="login-logo"
+                        layoutId="site-logo"
                         initial={{ transform: 'translateX(-50%)' }}
                         animate={{ transform: 'translateX(0)', transition: {delay: 0.2, duration: 0.8, ease: 'easeInOut'} }}
                         onClick={() => window.location.pathname !== '/login' && window.history.back()}

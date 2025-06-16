@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo, User } from '../services/user';
-import { useApp } from './AppContext';
+import { useApp} from "./AppContext";
 
 interface AuthContextType {
     user: User | null;
@@ -39,7 +39,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
                 .then(data => {
                     setUser(data);
                     localStorage.setItem('user', JSON.stringify(data));
-                    setPhase('exiting');
                 })
                 .catch(() => {
                     logout();

@@ -1,5 +1,5 @@
 .authenticated-layout {
-    display: flex;
+    display: none;
     height: 100vh;
     flex-direction: column;
 }

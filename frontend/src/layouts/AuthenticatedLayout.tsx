@@ -1,23 +1,19 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
-import { useApp } from '../context/AppContext';
+import { motion, Variants  } from 'framer-motion';
+import { useApp } from "../context/AppContext";
 import { useAuth } from '../context/AuthContext';
 import TabBar from '../components/TabBar';
 import '../styles/AuthenticatedLayout.css';
 
+const authenticatedVariants: Variants = {
+    loading: { display: 'flex' },
+    loaded: { display: 'flex' },
+}
+
 const AuthenticatedLayout: React.FC = () => {
     const { token, loading } = useAuth();
-    const { setPhase } = useApp();
-
-    React.useEffect(() => {
-        if (!loading) {
-            if (!token) {
-                setPhase('initial');
-            } else {
-                setPhase('exiting');
-            }
-        }
-    }, [loading, token, setPhase]);
+    const { phase } = useApp();
 
     if (loading) return <div>Loading...</div>;
     if (!token) {
@@ -25,12 +21,14 @@ const AuthenticatedLayout: React.FC = () => {
     }
 
     return (
-        <div className="authenticated-layout">
+        <motion.div className="authenticated-layout"
+             variants={authenticatedVariants}
+             animate={phase}>
             <TabBar />
             <div className="content-area">
                 <Outlet />
             </div>
-        </div>
+        </motion.div>
     );
 };
 

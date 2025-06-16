@@ -31,17 +31,17 @@ const LoginPage: React.FC = () => {
     };
 
     useEffect(() => {
-        setPhase('waiting')
-    })
+        if (phase === 'initial') {
+            setPhase('waiting')
+        }
+    }, [phase, setPhase])
 
     return (
         <motion.div
             className='login-card'
             variants={{
                 initial: {transform: 'rotateX(180deg)', background: 'transparent'},
-                waiting: {transform: 'rotateX(0deg)', background: '#CFBB65', transition: {delay: 1, duration: 0.9}},
-                entered: {transform: 'rotateX(180deg)', background: 'transparent', transition: {duration: 0.9}},
-                exiting: {display: 'none'},
+                waiting: {transform: 'rotateX(0deg)', background: '#CFBB65', transition: {delay: 1, duration: 0.9}}
             }}
             initial="initial"
             animate={phase}
@@ -64,4 +64,4 @@ const LoginPage: React.FC = () => {
     );
 };
 
-export default LoginPage
+export default LoginPage;

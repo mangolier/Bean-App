@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useState, useContext, useCallback, useEffect } from 'react';
 
-type AnimationPhase = 'initial' | 'waiting' | 'entered' | 'exiting' | 'exited';
+type AnimationPhase = 'initial' | 'waiting' | 'entering' | 'entered' | 'loading' | 'loaded';
 
 interface AppContextType {
     phase: AnimationPhase;
@@ -11,29 +11,22 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [phase, _setPhase] = useState<AnimationPhase>('initial');
-
-    useEffect(() => {
-        console.warn(`Animation phase changed: ${phase}`);
-    }, [phase]);
+    const storedJwt = localStorage.getItem('jwt');
+    const params = new URLSearchParams(window.location.search);
+    const isCallbackWithToken = !!params.get('token');
+    const [phase, _setPhase] = useState<AnimationPhase>(!isCallbackWithToken && storedJwt === null ? 'initial' : 'entering');
 
     const allowedTransitions: Record<AnimationPhase, AnimationPhase[]> = {
         initial: ['waiting'],
-        waiting: ['entered', 'exiting'],
-        entered: ['exiting'],
-        exiting: ['initial', 'exited'],
-        exited: []
+        waiting: ['entered'],
+        entering: ['entered'],
+        entered: ['loading'],
+        loading: ['loading'],
+        loaded: [],
     };
 
     const setPhase = useCallback((next: AnimationPhase) => {
-        if (phase === next) {
-            return
-        }
-
-        if (next === 'initial' && phase !== 'exiting') {
-            return
-        }
-
+        if (phase === next) return;
         const valid = allowedTransitions[phase] || [];
         if (valid.includes(next)) {
             _setPhase(next);

@@ -23,9 +23,9 @@ const App: React.FC = () => {
     return (
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
+                <Route path="/oauth2/redirect" element={<CallbackHandler />} />
                 <Route element={<AppLayout />}>
                     <Route path="/login" element={<LoginPage />} />
-                    <Route path="/oauth2/redirect" element={<CallbackHandler />} />
                     <Route path="/error" element={<ErrorPage />} />
 
                     <Route element={<AuthenticatedLayout />}>

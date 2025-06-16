@@ -16,13 +16,13 @@
 
 .logo-container {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     position: absolute;
-    width: 100%;
-    max-width: 26rem;
     text-align: center;
-    padding: 0 1.5rem;
     top: 50%;
-    transform: translateY(-45%);
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .login-title {

@@ -2,7 +2,6 @@ import React from 'react';
 import { motion, Variants  } from 'framer-motion';
 import { Outlet } from 'react-router-dom';
 import { useApp } from '../context/AppContext'
-import LoginForm from '../components/LoginForm';
 import '../styles/AppLayout.css';
 
 const logoVariants: Variants = {
@@ -61,7 +60,6 @@ const AppLayout: React.FC = () => {
                         onClick={() => window.location.pathname !== '/login' && window.history.back()}
                     />
                 </motion.div>
-                <LoginForm />
                 <Outlet />
             </motion.div>
         </div>

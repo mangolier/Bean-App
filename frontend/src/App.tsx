@@ -14,6 +14,7 @@ import HomePage from './pages/HomePage';
 import AppLayout from './layouts/AppLayout';
 import OrderPage from "./pages/OrderPage";
 import RootRedirect from './pages/RootRedirect';
+import LoginPage from "./pages/LoginPage";
 
 
 const App: React.FC = () => {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
                 <Route element={<AppLayout />}>
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/oauth2/redirect" element={<CallbackHandler />} />
                     <Route path="/error" element={<ErrorPage />} />
 

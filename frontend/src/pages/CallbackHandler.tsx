@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useApp } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
 
 const CallbackHandler: React.FC = () => {
     const navigate = useNavigate();
     const { setToken } = useAuth();
+    const { setPhase } = useApp();
 
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
@@ -17,7 +19,7 @@ const CallbackHandler: React.FC = () => {
         } else {
             navigate('/login');
         }
-    }, [navigate, setToken]);
+    }, [navigate, setToken, setPhase]);
 
     return <p>Logging you in...</p>;
 };

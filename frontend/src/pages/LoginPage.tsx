@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../services/auth'
 import { useApp } from '../context/AppContext'
 import { useAuth } from '../context/AuthContext'
-import '../styles/LoginForm.css'
+import '../styles/LoginPage.css'
 
-const LoginForm: React.FC = () => {
+const LoginPage: React.FC = () => {
     const navigate = useNavigate()
     const {setToken} = useAuth()
     const { phase, setPhase } = useApp()
@@ -64,4 +64,4 @@ const LoginForm: React.FC = () => {
     );
 };
 
-export default LoginForm
+export default LoginPage

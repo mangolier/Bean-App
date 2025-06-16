@@ -4,6 +4,7 @@ type AnimationPhase = 'initial' | 'waiting' | 'entering' | 'entered' | 'loading'
 
 interface AppContextType {
     phase: AnimationPhase;
+    getInitial: () => string;
     setPhase: (phase: AnimationPhase) => void;
     reset: () => void;
 }
@@ -16,13 +17,18 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const isCallbackWithToken = !!params.get('token');
     const [phase, _setPhase] = useState<AnimationPhase>(!isCallbackWithToken && storedJwt === null ? 'initial' : 'entering');
 
-    const allowedTransitions: Record<AnimationPhase, AnimationPhase[]> = {
+    useEffect(() => {
+        console.warn(`Animation phase changed: ${phase}`);
+    }, [phase]);
+
+    let allowedTransitions: Record<AnimationPhase, AnimationPhase[]>;
+    allowedTransitions = {
         initial: ['waiting'],
         waiting: ['entered'],
         entering: ['entered'],
         entered: ['loading'],
-        loading: ['loading'],
-        loaded: [],
+        loading: ['loaded'],
+        loaded: ['initial'],
     };
 
     const setPhase = useCallback((next: AnimationPhase) => {
@@ -30,6 +36,18 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         const valid = allowedTransitions[phase] || [];
         if (valid.includes(next)) {
             _setPhase(next);
+        }
+    }, [allowedTransitions, phase]);
+
+    const getInitial = useCallback(() => {
+        switch (phase) {
+            case 'initial':
+            case 'waiting':
+                return 'initial';
+            case 'loaded':
+                return 'loaded';
+            default:
+                return 'waiting';
         }
     }, [phase]);
 
@@ -41,6 +59,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         <AppContext.Provider
             value={{
                 phase,
+                getInitial,
                 setPhase,
                 reset,
             }}

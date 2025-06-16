@@ -28,7 +28,7 @@ const logoContainerVariants: Variants = {
     entering: { x: '-50%', y: '-50%', maxWidth: '26rem', width: '100%', transition: { duration: 0.8, ease: "easeInOut" } },
     entered: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '26rem', width: '100%', scale: 0.3, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
     loading: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '26rem', width: '100%', scale: 0.3, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
-    loaded: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '26rem', width: '100%', scale: 0.3 }
+    loaded: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '26rem', width: '100%', scale: 0.3, rotate: -360 }
 }
 
 const titleVariants: Variants = {
@@ -41,14 +41,14 @@ const titleVariants: Variants = {
 }
 
 const AppLayout: React.FC = () => {
-    const { phase, setPhase } = useApp()
+    const { phase, getInitial, setPhase } = useApp()
 
     return (
         <div className="app-layout">
             <motion.div
                 className="app-container"
                 variants={containerVariants}
-                initial={phase === 'initial' ? 'initial' : 'waiting'}
+                initial={getInitial()}
                 animate={phase}
                 onAnimationComplete={(v) => {
                     if (v === 'entering') setPhase('entered');
@@ -60,13 +60,13 @@ const AppLayout: React.FC = () => {
                     className="logo-container"
                     variants={logoContainerVariants}
                     animate={phase}
-                    initial={phase === 'initial' ? 'initial' : 'waiting'}
+                    initial={getInitial()}
                     style={{ position: 'absolute', zIndex: 1000 }}
                 >
                     <motion.h1
                         className="login-title"
                         variants={titleVariants}
-                        initial={phase === 'initial' ? 'initial' : 'waiting'}
+                        initial={getInitial()}
                         animate={phase}
                     >
                         Đăng nhập vào
@@ -76,7 +76,7 @@ const AppLayout: React.FC = () => {
                         alt="Logo"
                         className="logo"
                         variants={logoVariants}
-                        initial={phase === 'initial' ? 'initial' : 'waiting'}
+                        initial={getInitial()}
                         animate={phase}
                         onClick={() => window.location.pathname !== '/login' && window.history.back()}
                     />

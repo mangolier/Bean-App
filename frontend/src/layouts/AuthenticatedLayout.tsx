@@ -23,7 +23,8 @@ const AuthenticatedLayout: React.FC = () => {
     return (
         <motion.div className="authenticated-layout"
              variants={authenticatedVariants}
-             animate={phase}>
+             animate={phase}
+        >
             <TabBar />
             <div className="content-area">
                 <Outlet />

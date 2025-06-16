@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect, useContext, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserInfo, User } from '../services/user';
-import { useApp} from "./AppContext";
 
 interface AuthContextType {
     user: User | null;
@@ -22,13 +21,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const [token, setToken] = useState<string | null>(() => localStorage.getItem('jwt'));
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-    const { setPhase } = useApp();
     const logout = useCallback(() => {
         localStorage.removeItem('jwt');
         localStorage.removeItem('user');
         setUser(null);
         setToken(null);
-        setPhase('initial');
         navigate('/login', { replace: true });
     }, [navigate]);
 

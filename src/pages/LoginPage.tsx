@@ -41,7 +41,7 @@ const LoginPage: React.FC = () => {
             className='login-card'
             variants={{
                 initial: {transform: 'rotateX(180deg)', background: 'transparent'},
-                waiting: {transform: 'rotateX(0deg)', background: '#CFBB65', transition: {delay: 1, duration: 0.9}}
+                waiting: {transform: 'rotateX(0deg)', background: '#CFBB65', transition: {delay: 1, duration: 1}}
             }}
             initial="initial"
             animate={phase}

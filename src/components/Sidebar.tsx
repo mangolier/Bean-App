@@ -5,9 +5,16 @@ import '../styles/Sidebar.css';
 const Sidebar: React.FC = () => {
     return (
         <div className="sidebar">
+            <div className="sidebar-divider"/>
             <nav className="sidebar-menu">
-                <NavLink to="/inventory" className={({ isActive }) => isActive ? 'active' : ''}>Nhập kho</NavLink>
-                <NavLink to="/orders" className={({ isActive }) => isActive ? 'active' : ''}>Đơn hàng</NavLink>
+                <ul>
+                    <li>
+                        <NavLink to="/inventory" className={({ isActive }) => isActive ? 'active' : ''}>Nhập kho</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/orders" className={({ isActive }) => isActive ? 'active' : ''}>Đơn hàng</NavLink>
+                    </li>
+                </ul>
             </nav>
         </div>
     );

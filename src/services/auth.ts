@@ -1,11 +1,11 @@
 import { post } from './api';
 
 export interface AuthResponse {
-    access_token: string;
+    accessToken: string;
 }
 
 export interface Credential {
-    email: string;
+    username: string;
     password: string;
 }
 

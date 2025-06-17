@@ -24,7 +24,6 @@ const InventoryPage: React.FC = () => {
 
     return (
         <div className="admin-portal">
-            <h2>Inventory Records</h2>
             <table>
                 <thead>
                 <tr>

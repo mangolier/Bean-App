@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import RequireRole from './components/RequireRole';
 
 import AuthenticatedLayout from './layouts/AuthenticatedLayout';
+import ContentLayout from './layouts/ContentLayout';
 import PortalLayout from "./layouts/PortalLayout";
 
 import InventoryPage from './pages/InventoryPage';
@@ -33,12 +34,18 @@ const App: React.FC = () => {
                         <Route element={<RequireRole role="ADMIN" redirectTo="/home" />}>
                             <Route element={<PortalLayout />}>
                                 <Route index element={<Navigate to="/inventory" replace />} />
-                                <Route path="inventory" element={<InventoryPage />} />
-                                <Route path="orders" element={<OrderPage />} />
+                                <Route element={<ContentLayout title="Nhập kho" />}>
+                                    <Route path="inventory" element={<InventoryPage />} />
+                                </Route>
+                                <Route element={<ContentLayout title="Đơn hàng" />}>
+                                    <Route path="orders" element={<OrderPage />} />
+                                </Route>
                             </Route>
                         </Route>
                         <Route element={<RequireRole role="USER" redirectTo="/inventory" />}>
-                            <Route path="home" element={<HomePage />} />
+                            <Route element={<ContentLayout title="Trang chủ" />}>
+                                <Route path="home" element={<HomePage />} />
+                            </Route>
                         </Route>
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Route>

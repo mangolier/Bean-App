@@ -14,12 +14,12 @@ const LoginPage: React.FC = () => {
     const handleEmailLogin = async (e: React.FormEvent) => {
         e.preventDefault()
         const form = e.target as HTMLFormElement
-        const email = (form.elements.namedItem('email') as HTMLInputElement).value
+        const username = (form.elements.namedItem('username') as HTMLInputElement).value
         const password = (form.elements.namedItem('password') as HTMLInputElement).value
         try {
-            const data = await login({email, password})
-            localStorage.setItem('jwt', data.access_token)
-            setToken(data.access_token)
+            const data = await login({username, password})
+            localStorage.setItem('jwt', data.accessToken)
+            setToken(data.accessToken)
             navigate('/', {replace: true})
         } catch (err) {
             console.error('Login failed:', err)
@@ -48,7 +48,7 @@ const LoginPage: React.FC = () => {
         >
             <br/>
             <form onSubmit={handleEmailLogin} className='login-form'>
-                <input type='email' name='email' placeholder='Email' className='login-input' required/>
+                <input type='username' name='username' placeholder='Username' className='login-input' required/>
                 <input type='password' name='password' placeholder='Mật khẩu' className='login-input' required/>
                 <button type='submit' className='login-button'>Đăng nhập</button>
             </form>

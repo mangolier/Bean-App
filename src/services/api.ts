@@ -17,9 +17,9 @@ api.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             localStorage.removeItem("jwt");
-            window.location.href = "/login";
+            window.location.hash = '/login';
         } else if (!error.response || error.response.status >= 500) {
-            window.location.href = "/error";
+            window.location.hash = '/error';
         }
         return Promise.reject(error);
     }

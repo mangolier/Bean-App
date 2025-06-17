@@ -3,7 +3,6 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { motion, Variants  } from 'framer-motion';
 import { useApp } from "../context/AppContext";
 import { useAuth } from '../context/AuthContext';
-import TabBar from '../components/TabBar';
 import '../styles/AuthenticatedLayout.css';
 
 const authenticatedVariants: Variants = {
@@ -25,7 +24,6 @@ const AuthenticatedLayout: React.FC = () => {
              variants={authenticatedVariants}
              animate={phase}
         >
-            <TabBar />
             <div className="content-area">
                 <Outlet />
             </div>

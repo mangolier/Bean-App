@@ -24,7 +24,6 @@ const OrderPage: React.FC = () => {
 
     return (
         <div className="admin-portal">
-            <h2>Order Records</h2>
             <table>
                 <thead>
                 <tr>

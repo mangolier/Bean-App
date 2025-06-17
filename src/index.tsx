@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import { AppProvider } from './context/AppContext';
 import { AuthProvider } from './context/AuthContext';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-    <BrowserRouter>
+    <HashRouter>
         <AppProvider>
             <AuthProvider>
                 <App />
             </AuthProvider>
         </AppProvider>
-    </BrowserRouter>
+    </HashRouter>
 );

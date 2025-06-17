@@ -25,7 +25,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const setPhase = useCallback((next: AnimationPhase) => {
         const allowedTransitions: Record<AnimationPhase, AnimationPhase[]> = {
             initial: ['waiting'],
-            waiting: ['entered'],
+            waiting: ['entering'],
             entering: ['entered', 'initial'],
             entered: ['loading'],
             loading: ['loaded'],

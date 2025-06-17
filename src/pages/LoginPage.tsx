@@ -20,6 +20,7 @@ const LoginPage: React.FC = () => {
             const data = await login({username, password})
             localStorage.setItem('jwt', data.accessToken)
             setToken(data.accessToken)
+            setPhase('entering')
             navigate('/', {replace: true})
         } catch (err) {
             console.error('Login failed:', err)

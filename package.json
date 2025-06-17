@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "@react-oauth/google": "^0.12.2",
+    "@tanstack/react-query": "^5.80.7",
+    "@tanstack/react-table": "^8.21.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -31,7 +33,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
     "predeploy": "npm run build",
-    "deploy":   "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

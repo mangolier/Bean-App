@@ -1,4 +1,5 @@
 import React, { ReactNode, createContext, useState, useContext, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 type AnimationPhase = 'initial' | 'waiting' | 'entering' | 'entered' | 'loading' | 'loaded';
 
@@ -13,8 +14,8 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const storedJwt = localStorage.getItem('jwt');
-    const params = new URLSearchParams(window.location.search);
-    const isCallbackWithToken = !!params.get('token');
+    const [searchParams] = useSearchParams();
+    const isCallbackWithToken = !!searchParams.get('token');
     const [phase, _setPhase] = useState<AnimationPhase>(!isCallbackWithToken && storedJwt === null ? 'initial' : 'entering');
 
     useEffect(() => {

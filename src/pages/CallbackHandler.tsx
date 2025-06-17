@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const CallbackHandler: React.FC = () => {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
     const { setToken } = useAuth();
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get('token');
+        const token = searchParams.get('token');
 
         if (token) {
             localStorage.setItem('jwt', token);
@@ -17,7 +17,7 @@ const CallbackHandler: React.FC = () => {
         } else {
             navigate('/login');
         }
-    }, [navigate, setToken]);
+    }, [navigate, searchParams, setToken]);
 
     return <p>Logging you in...</p>;
 };

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Bean-App/static/css/main.f3a4218a.css",
-    "main.js": "/Bean-App/static/js/main.b11901b5.js",
+    "main.js": "/Bean-App/static/js/main.eaea27fd.js",
     "static/media/pattern.png": "/Bean-App/static/media/pattern.3a9e9ce36e1b6f50dc33.png",
     "index.html": "/Bean-App/index.html",
     "main.f3a4218a.css.map": "/Bean-App/static/css/main.f3a4218a.css.map",
-    "main.b11901b5.js.map": "/Bean-App/static/js/main.b11901b5.js.map"
+    "main.eaea27fd.js.map": "/Bean-App/static/js/main.eaea27fd.js.map"
   },
   "entrypoints": [
     "static/css/main.f3a4218a.css",
-    "static/js/main.b11901b5.js"
+    "static/js/main.eaea27fd.js"
   ]
 }

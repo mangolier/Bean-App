@@ -6,14 +6,15 @@ const TabBar: React.FC = () => {
 
     return (
         <div className='tab-bar top'>
-            <div className='tab-left'>
-            </div>
+            <div className='tab-left'/>
             <div className='tab-right'>
-                <span className='user-info'>{user?.name || 'User'} ({user?.email || '---'})</span>
+                <span className='user-info'>
+                    {user?.name || 'User'} ({user?.email || '---'})
+                </span>
                 <button onClick={logout} className='logout-btn'>Logout</button>
             </div>
         </div>
     );
 };
 
-export default TabBar
+export default TabBar;

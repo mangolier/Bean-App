@@ -21,23 +21,21 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         console.warn(`Animation phase changed: ${phase}`);
     }, [phase]);
 
-    let allowedTransitions: Record<AnimationPhase, AnimationPhase[]>;
-    allowedTransitions = {
-        initial: ['waiting'],
-        waiting: ['entered'],
-        entering: ['entered', 'initial'],
-        entered: ['loading'],
-        loading: ['loaded'],
-        loaded: [],
-    };
-
     const setPhase = useCallback((next: AnimationPhase) => {
+        const allowedTransitions: Record<AnimationPhase, AnimationPhase[]> = {
+            initial: ['waiting'],
+            waiting: ['entered'],
+            entering: ['entered', 'initial'],
+            entered: ['loading'],
+            loading: ['loaded'],
+            loaded: [],
+        };
         if (phase === next) return;
         const valid = allowedTransitions[phase] || [];
         if (valid.includes(next)) {
             _setPhase(next);
         }
-    }, [allowedTransitions, phase]);
+    }, [phase]);
 
     const getInitial = useCallback(() => {
         switch (phase) {

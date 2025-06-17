@@ -13,7 +13,7 @@ export const login = async (credential: Credential): Promise<AuthResponse> => {
     try {
         const response = await post<AuthResponse>('/auth/login', credential);
         return response.data;
-    } catch (error) {
+    } catch {
         throw new Error('Failed to fetch user info');
     }
 };

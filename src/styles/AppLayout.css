@@ -9,7 +9,7 @@
 
 .app-container {
     width: 100%;
-    max-width: 26rem;
+    max-width: 20rem;
     position: relative;
     font-family: 'Dancing Script', serif;
 }
@@ -28,7 +28,7 @@
 .login-title {
     display: flex;
     flex-direction: column-reverse;
-    font-size: 2rem;
+    font-size: 1.3rem;
     color: #3D2E00;
     text-align: left;
     font-family: inherit;
@@ -38,6 +38,6 @@
 }
 
 .logo {
-    width: 12rem;
+    width: 8rem;
     transform: translateX(-50%);
 }

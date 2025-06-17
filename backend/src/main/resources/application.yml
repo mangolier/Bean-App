@@ -32,4 +32,4 @@ spring:
             user-name-attribute: sub
 
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}

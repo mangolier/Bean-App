@@ -26,9 +26,9 @@ const logoContainerVariants: Variants = {
     initial: { x: '-50%', y: '-50%', maxWidth: '20rem', width: '100%', rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
     waiting: { x: '-50%', y: '-180%', maxWidth: '20rem', width: '100%', transition: { delay: 1, duration: 0.8, ease: "easeInOut" } },
     entering: { x: '-50%', y: '-50%', maxWidth: '20rem', width: '100%', transition: { duration: 0.8, ease: "easeInOut" } },
-    entered: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.3, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
-    loading: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.3, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
-    loaded: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.3, rotate: -360 }
+    entered: { top: '-2rem', left: '-6rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.5, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
+    loading: { top: '-2rem', left: '-6rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.5, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
+    loaded: { top: '-2rem', left: '-6rem', x: 0, y: 0, maxWidth: '20rem', width: '100%', scale: 0.5, rotate: -360 }
 }
 
 const titleVariants: Variants = {

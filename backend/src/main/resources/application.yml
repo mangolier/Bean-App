@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=onion;encrypt=true;trustServerCertificate=true
-    username: guanyu98
-    password: hoangphuc88
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
@@ -18,8 +18,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 360895514662-8at9rv58f5eg4nhbd4bnrngm4fvibckp.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             redirect-uri: "{baseUrl}/oauth2/callback/google"
             scope:
               - email

@@ -25,10 +25,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     allowedTransitions = {
         initial: ['waiting'],
         waiting: ['entered'],
-        entering: ['entered'],
+        entering: ['entered', 'initial'],
         entered: ['loading'],
         loading: ['loaded'],
-        loaded: ['initial'],
+        loaded: [],
     };
 
     const setPhase = useCallback((next: AnimationPhase) => {

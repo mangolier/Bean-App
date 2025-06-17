@@ -14,7 +14,7 @@ const containerVariants: Variants = {
 }
 
 const logoVariants: Variants = {
-    initial: { x: '-50%' },
+    initial: { x: '-50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },
     waiting: { x: 0, transition: { delay: 0.2, duration: 0.8, ease: "easeInOut" } },
     entering: { x: '-50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },
     entered: { x: '-50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },
@@ -23,7 +23,7 @@ const logoVariants: Variants = {
 }
 
 const logoContainerVariants: Variants = {
-    initial: { x: '-50%', y: '-50%', maxWidth: '26rem', width: '100%' },
+    initial: { x: '-50%', y: '-50%', maxWidth: '26rem', width: '100%', rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
     waiting: { x: '-50%', y: '-155%', maxWidth: '26rem', width: '100%', transition: { delay: 1, duration: 0.8, ease: "easeInOut" } },
     entering: { x: '-50%', y: '-50%', maxWidth: '26rem', width: '100%', transition: { duration: 0.8, ease: "easeInOut" } },
     entered: { top: '-4rem', left: '-10rem', x: 0, y: 0, maxWidth: '26rem', width: '100%', scale: 0.3, rotate: -360, transition: { duration: 0.8, ease: "easeInOut" } },
@@ -32,7 +32,7 @@ const logoContainerVariants: Variants = {
 }
 
 const titleVariants: Variants = {
-    initial: { opacity: 0, x: '50%' },
+    initial: { opacity: 0, x: '50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },
     waiting: { opacity: 1, x: 0, transition: { delay: 0.2, duration: 0.8, ease: "easeInOut" } },
     entering: { opacity: 0, x: '50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },
     entered: { opacity: 0, x: '50%', transition: { delay: 0.8, duration: 0.8, ease: "easeInOut" } },

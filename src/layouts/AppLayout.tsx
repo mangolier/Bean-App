@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion, Variants  } from 'framer-motion';
-import { Outlet } from 'react-router-dom';
+import React from 'react'
+import { motion, Variants  } from 'framer-motion'
+import { Outlet } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import '../styles/AppLayout.css';
+import '../styles/AppLayout.css'
 
 const containerVariants: Variants = {
     initial: { },
@@ -72,7 +72,7 @@ const AppLayout: React.FC = () => {
                         Đăng nhập vào
                     </motion.h1>
                     <motion.img
-                        src="/assets/logo.jpg"
+                        src={`${process.env.PUBLIC_URL}/assets/logo.jpg`}
                         alt="Logo"
                         className="logo"
                         variants={logoVariants}

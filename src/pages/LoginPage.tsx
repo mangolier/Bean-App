@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:8080/oauth2/authorize/google'
+        window.location.href = 'https://bean-app.onrender.com/oauth2/authorize/google'
     };
 
     useEffect(() => {

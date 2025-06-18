@@ -46,3 +46,7 @@
 .resizer.isResizing {
     background: #524A1E;
 }
+
+.no-content-row {
+    text-align: center;
+}

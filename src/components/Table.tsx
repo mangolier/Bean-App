@@ -94,18 +94,28 @@ function Table<T extends object>({ data, columns }: TableProps<T>) {
                 ))}
                 </thead>
                 <tbody>
-                {table.getRowModel().rows.map(row => (
-                    <tr key={row.id}>
-                        {row.getVisibleCells().map(cell => (
-                            <td key={cell.id}>
-                                {flexRender(
-                                    cell.column.columnDef.cell,
-                                    cell.getContext()
-                                )}
-                            </td>
-                        ))}
+                {table.getRowModel().rows.length === 0 ? (
+                    <tr>
+                        <td colSpan={table.getAllLeafColumns().length}>
+                            <div className="no-content-row">
+                                <span>No content</span>
+                            </div>
+                        </td>
                     </tr>
-                ))}
+                ) : (
+                    table.getRowModel().rows.map(row => (
+                        <tr key={row.id}>
+                            {row.getVisibleCells().map(cell => (
+                                <td key={cell.id}>
+                                    {flexRender(
+                                        cell.column.columnDef.cell,
+                                        cell.getContext()
+                                    )}
+                                </td>
+                            ))}
+                        </tr>
+                    ))
+                )}
                 </tbody>
             </table>
         </div>

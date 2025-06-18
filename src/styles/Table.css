@@ -1,0 +1,48 @@
+.table-container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.custom-table {
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 2rem;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid #CFBB65;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    text-align: left;
+    opacity: 0.9;
+    position: relative;
+}
+
+.custom-table th {
+    background: #CFBB65;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resizer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.4rem;
+    height: 100%;
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    background: #524A1E;
+    border-radius: 0.2rem;
+    z-index: 100;
+}
+
+.resizer.isResizing {
+    background: #524A1E;
+}

@@ -17,6 +17,7 @@ api.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             localStorage.removeItem("jwt");
+            localStorage.removeItem("user");
             window.location.hash = '/login';
         } else if (!error.response || error.response.status >= 500) {
             window.location.hash = '/error';

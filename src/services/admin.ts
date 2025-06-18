@@ -2,6 +2,7 @@ import { get } from './api';
 
 export interface InventoryRecord {
     id: number;
+    description: string;
     createdAt: string;
     createdBy: string;
 }

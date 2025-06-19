@@ -40,27 +40,33 @@ const LoginPage: React.FC = () => {
     return (
         <motion.div
             className='login-card'
-            variants={{
+            /*variants={{
                 initial: {transform: 'rotateX(180deg)', background: 'transparent'},
                 waiting: {transform: 'rotateX(0deg)', background: '#CFBB65', transition: {delay: 1, duration: 1}}
             }}
             initial="initial"
-            animate={phase}
+            animate={phase}*/
         >
-            <br/>
             <form onSubmit={handleEmailLogin} className='login-form'>
-                <input type='username' name='username' placeholder='Username' className='login-input' required/>
+                <input type='username' name='username' placeholder='Tài khoản của bạn' className='login-input' required/>
                 <input type='password' name='password' placeholder='Mật khẩu' className='login-input' required/>
-                <button type='submit' className='login-button'>Đăng nhập</button>
+                <button type='submit' className='btn-primary'>Đăng nhập</button>
+                <button className='btn-google' onClick={handleGoogleLogin}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/assets/google.png`}
+                        alt='Google logo'
+                    />
+                    <span>Đăng nhập bằng Google</span>
+                </button>
             </form>
-            <div className='divider'>Hoặc</div>
-            <button className='google-btn' onClick={handleGoogleLogin}>
-                <img
-                    src='https://developers.google.com/identity/images/g-logo.png'
-                    alt='Google logo'
-                />
-                Đăng nhập với Google
-            </button>
+            <p className="forgot-password">
+                <a href="#">Quên mật khẩu?</a>
+            </p>
+            <div className="footer-text">
+                <p>
+                    Chào mừng bạn đến với thế giới cá viên chiên và trà tắc!
+                </p>
+            </div>
         </motion.div>
     );
 };

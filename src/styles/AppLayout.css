@@ -9,7 +9,7 @@
 
 .app-container {
     width: 100%;
-    max-width: 20rem;
+    max-width: 22rem;
     position: relative;
     font-family: 'Dancing Script', serif;
 }
@@ -18,26 +18,17 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: absolute;
     text-align: center;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
 
-.login-title {
-    display: flex;
-    flex-direction: column-reverse;
-    font-size: 1.3rem;
-    color: #3D2E00;
-    text-align: left;
-    font-family: inherit;
-    line-height: 1.2;
-    opacity: 0;
-    transform: translateX(100%);
-}
-
 .logo {
     width: 8rem;
-    transform: translateX(-50%);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    position: absolute;
+    z-index: 1000;
 }

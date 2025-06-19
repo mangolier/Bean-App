@@ -1,16 +1,19 @@
 .login-card {
-    background: transparent;
-    padding: 2rem 2rem;
-    border-radius: 4rem;
-    color: #CFBB65;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 1);
+    background-color: #F8F1E2;
+    backdrop-filter: blur(10px);
+    padding: 6rem 2rem 2rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-width: 18rem;
     width: 100%;
-    max-width: 16rem;
+}
+
+.login-title {
     text-align: center;
-    backface-visibility: hidden;
-    opacity: 0.6;
-    transform-style: preserve-3d;
-    transform: rotateX(180deg);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 1rem;
 }
 
 .login-form {
@@ -21,70 +24,104 @@
 }
 
 .login-input {
-    padding: 0.5rem 0.75rem;
-    border: 0.25rem solid #6F6E69;
-    border-radius: 0.75rem;
-    font-size: 1rem;
+    height: 2.5rem;
+    border: double 2px transparent;
+    border-radius: 1rem;
+    background-image: linear-gradient(#F8F1E2, #F8F1E2),
+    url('../../public/assets/sign-in-hover.png');
+    color: #6B7280;
+    background-size: 100% 100%;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
     font-family: inherit;
+    font-size: 1rem;
+    text-indent: 1rem;
     outline: none;
 }
 
 .login-input:focus,
 .login-input:hover {
-    border-color: black;
+    background-image: linear-gradient(#F8F1E2, #F8F1E2),
+    url('../../public/assets/sign-in.png');
 }
 
-.divider {
-    display: flex;
-    align-items: center;
-    margin: 1.5rem 0;
-    color: #524A1E;
-    font-size: 0.875rem;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    height: 0.0625rem;
-    background: #524A1E;
-    margin: 0 0.75rem;
-}
-
-.login-button,
-.google-btn {
-    padding: 0.5rem 0.75rem;
+.btn-primary {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-image: url('../../public/assets/sign-in.png');
+    background-color: transparent;
+    background-size: 100% 100%;
+    color: #F8F1E2;
     border: none;
-    border-radius: 0.75rem;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+    font-size: 1.5rem;
     font-family: inherit;
-    transition: box-shadow 0.2s;
+    cursor: pointer;
+    transition: background-image 0.2s;
 }
 
-.login-button {
-    background: #524A1E;
-    color: #FFF;
+.btn-primary:hover {
+    background-image: url('../../public/assets/sign-in-hover.png');
 }
 
-.login-button:hover,
-.google-btn:hover {
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 1);
-}
-
-.google-btn {
-    background: #FFF;
-    color: #000;
+.btn-google {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    padding: 0.1rem;
+    height: 3rem;
+    border: double 2px transparent;
+    border-radius: 1rem;
+    background-image: linear-gradient(#F8F1E2, #F8F1E2),
+    url('../../public/assets/sign-in-hover.png');
+    color: #6B7280;
+    background-size: 100% 100%;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-image 0.2s;
 }
 
-.google-btn img {
+.btn-google:hover {
+    background-image: linear-gradient(#F8F1E2, #F8F1E2),
+    url('../../public/assets/sign-in.png');
+    color: #E6B55C;
+}
+
+.btn-google img {
+    height: 1.25rem;
+    width: 1.25rem;
     margin-right: 0.5rem;
-    width: 1.5rem;
-    height: 1.5rem;
+}
+
+.forgot-password {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-top: 1rem;
+}
+
+.forgot-password a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+.forgot-password a:hover {
+    color: #374151;
+}
+
+.footer-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.footer-text p {
+    width: 80%;
+    text-align: center;
+    color: #374151;
+    font-style: inherit;
+    font-size: 1.2rem;
 }
